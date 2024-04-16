@@ -10,7 +10,7 @@ export default function App() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#1A1E21" }}>
       <StatusBar barStyle="light-content" />
-      <Swiper showsButtons={false}>
+      <Swiper showsButtons={false} showsPagination={false}>
         <Screen1 />
         <Screen2 />
       </Swiper>

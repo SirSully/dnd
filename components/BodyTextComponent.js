@@ -41,14 +41,21 @@ const BodyTextComponent = ({ title, text, flex, center, dropdown }) => {
             <Text style={[styles.bottomText]}>{text}</Text>
           </View>
           <Pressable style={styles.downButton}>
-            <Image source={require("../assets/down.png")} />
+            <Image source={require("../assets/down.webp")} />
           </Pressable>
         </View>
-        <View style={styles.plusContainer}>
-          <Pressable style={styles.downButton}>
-            <Image source={require("../assets/plus.png")} />
-          </Pressable>
-        </View>
+        <Pressable
+          style={({ pressed }) => [
+            styles.plusContainer,
+            {
+              backgroundColor: pressed ? "greenyellow" : "green",
+            },
+          ]}
+        >
+          <View style={styles.downButton}>
+            <Image source={require("../assets/plus.webp")} />
+          </View>
+        </Pressable>
       </View>
     </View>
   );

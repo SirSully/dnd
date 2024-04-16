@@ -8,27 +8,19 @@ import {
 } from "react-native";
 import React from "react";
 import BodyTextComponent from "../components/BodyTextComponent";
-
-const backgroundImageUri =
-  "https://s3-alpha-sig.figma.com/img/c197/bbf4/efd5cb65abe0457c7520a266fdcf7f1e?Expires=1714348800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=g38cigY4Ps68nUHA9yMf~cywCxtvouRx7i0k9ugWZIWJpwH5td8Taenn2C0B5uvYVur-Ayv-huueF~sTbbfWMyfONR9uMi-AHI6TvGEwrwyuanhb5fdB34xzppBpEY-DYdIIDyVp6fVHXIRzHutBgy4jZxHJi3FTSM2pbpawZi4CDGIdnjk~giqmDs3UrDYswpbfh2ZWrokEofTkYiOXdFhIJ3RJaDOqwk3z0QybfEGMHJExMsnTjSyj5diGGODJh2g5Embo~SobktgwuAhGaFUFa11owNUzBbKmcUBGt0HUFoe9mJS~osNBhRyd~yCG6n6c45kx4JIxXlyYJx3EoA__";
+import TitleButton from "../components/TitleButton";
 
 const Screen1 = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={{
-          uri: backgroundImageUri,
-        }}
+        source={require("../assets/table.webp")}
         style={styles.topContainer}
       >
         <View style={styles.titleBar}>
           <Text style={styles.titleText}>Story</Text>
-          <Pressable style={styles.titleButton}>
-            <Image source={require("../assets/save.png")} />
-          </Pressable>
-          <Pressable style={styles.titleButton}>
-            <Image source={require("../assets/x.png")} />
-          </Pressable>
+          <TitleButton source={require("../assets/save.webp")} />
+          <TitleButton source={require("../assets/x.webp")} />
         </View>
       </ImageBackground>
       <View style={styles.bottomContainer}>
@@ -59,28 +51,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
   },
-  bottomTextTitle: {
-    color: "#999999",
-    fontSize: 14,
-    padding: 2,
-  },
-  bottomText: {
-    fontSize: 15,
-    color: "white",
-  },
-  bottomTextView: {
-    width: "100%",
-    borderRadius: 10,
-    borderColor: "#464646",
-    borderWidth: 1,
-    padding: 8,
-    marginBottom: 10,
-  },
-  topContainer: {
-    height: 136,
-    width: "100%",
-    backgroundColor: "red",
-  },
   titleBar: {
     flexDirection: "row",
     width: "100%",
@@ -88,22 +58,18 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
   },
-  titleButton: {
-    width: 30,
-    height: 30,
-    borderRadius: 5,
-    backgroundColor: "#1A1E21",
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: "#989898",
-    borderWidth: 1,
-    marginHorizontal: 5,
-  },
   titleText: {
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
     flex: 1,
+    textShadowOffset: { width: 4, height: 4 },
+    textShadowRadius: 8,
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+  },
+  topContainer: {
+    height: 136,
+    width: "100%",
   },
 });
 

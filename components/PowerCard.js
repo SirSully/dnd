@@ -1,26 +1,50 @@
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Pressable,
+} from "react-native";
+import React, { useState } from "react";
 
 const PowerCard = ({ source, title, action }) => {
+  const [isPressed, setIsPressed] = useState(false);
   return (
-    <View style={styles.container}>
+    <Pressable
+      onPressIn={() => setIsPressed(true)}
+      onPressOut={() => setIsPressed(false)}
+      style={styles.container}
+    >
       <ImageBackground
         imageStyle={styles.imageStyle}
         source={source}
         style={styles.imageBackground}
       >
-        <View style={styles.overlay} />
+        <View
+          style={[
+            styles.overlay,
+            { opacity: isPressed ? 0 : 0.6 }, // Adjust opacity based on press state
+          ]}
+        />
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.action}>{action}</Text>
       </ImageBackground>
-    </View>
+    </Pressable>
   );
 };
 
 export default PowerCard;
 
 const styles = StyleSheet.create({
-  container: { paddingRight: 10 },
+  action: {
+    fontSize: 16,
+    color: "#fff",
+    paddingBottom: 5,
+    textAlign: "center",
+  },
+  container: {
+    paddingRight: 10,
+  },
   imageStyle: {
     borderRadius: 8,
     borderColor: "#484848",
@@ -44,12 +68,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#fff",
-    paddingBottom: 5,
-    textAlign: "center",
-  },
-  action: {
-    fontSize: 16,
     color: "#fff",
     paddingBottom: 5,
     textAlign: "center",
